@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 
 export const PokeListContainer = styled.div`
-background-color: black;
+
 /* margin: 6rem;
 margin-left: 25rem; */
 display: flex;
