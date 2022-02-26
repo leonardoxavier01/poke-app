@@ -17,13 +17,26 @@ height: 10rem;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column;
 position: relative;
 margin-bottom: 0.5rem;
 `
 export const PokemonImage = styled.img`
 width: 9.5rem;
 height: 9.5rem;
-position: absolute;
 z-index: 2;
 top: 0.85rem; 
+
 `
+export const PokemonName = styled.h3`
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: 32px;
+letter-spacing: 0em;
+text-align: left;
+`
+
+/* export const Icon = styled.svg`
+width: 80%;
+` */
