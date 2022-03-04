@@ -5,21 +5,29 @@ import Card from '../Card'
 const PokeList = () => (
   <PokeListContainer>
     <PokeListWrapper>
-      <Card name="Venusaur" color="#E5FADA" />
-      <Card name="Abra" color="#F9E3E9" />
-      <Card name="Poliwhirl" color="#E0EBFF" />
-      <Card name="Chandelure" color="#EFE4FF" />
-      <Card name="Shelmet" color="#FBFFDB" />
-      <Card name="Charizard" color="#F6E1D4" />
-      <Card name="Vullaby" color="#ECE0DC" />
-      <Card name="Arcanine" color="#F6E1D4" />
-      <Card name="Froakie" color="#E0EBFF" />
+      {render()}
     </PokeListWrapper>
   </PokeListContainer>
 )
 
+function render() {
+  const elements = ['Venusaur', 'Froakie', 'Arcanine']
+
+  const colors = ['#E5FADA', '#E0EBFF', '#F6E1D4']
+
+  const items = []
+
+  for (const [index, value] of elements.entries()) {
+    items.push(<Card key={items} name={value} color={colors[index]} />)
+  }
+
+  return items;
+}
+
 export default PokeList
 
-{/* <Card img={Venusaur}
+{
+  /* <Card img={Venusaur}
     name={'Venusaur'}
-    color={'#E5FADA'}/> */}
+    color={'#E5FADA'}/> */
+}

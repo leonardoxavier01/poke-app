@@ -8,4 +8,5 @@ export const ButtonStyled = styled.button`
   color: ${({ theme }) => theme.white};
   padding: 0.75rem 2rem;
   cursor: pointer;
+  
 `
