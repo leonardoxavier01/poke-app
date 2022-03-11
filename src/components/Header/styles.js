@@ -23,7 +23,7 @@ export const NavbarItem = styled.nav`
   font-size: 1.125rem;
   cursor: pointer;
 
-  &.:last-child {
+  &:last-child {
     margin-right: 0px;
   }
 

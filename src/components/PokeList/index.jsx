@@ -1,13 +1,16 @@
 import React from 'react'
-import { PokeListContainer, PokeListWrapper } from './styles'
+import { PokeListContainer, PokeListWrapper} from './styles'
 import Card from '../Card'
 
 const PokeList = () => (
-  <PokeListContainer>
-    <PokeListWrapper>
-      {render()}
-    </PokeListWrapper>
-  </PokeListContainer>
+  
+    <PokeListContainer>
+      
+         {/* {render()}  */}
+        <Card  /* name={'Venusaur'} color={'#E5FADA'}  */ />
+      
+    </PokeListContainer>
+  
 )
 
 function render() {
@@ -21,13 +24,8 @@ function render() {
     items.push(<Card key={items} name={value} color={colors[index]} />)
   }
 
-  return items;
+  return items
 }
 
-export default PokeList
+export default PokeList 
 
-{
-  /* <Card img={Venusaur}
-    name={'Venusaur'}
-    color={'#E5FADA'}/> */
-}
