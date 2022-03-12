@@ -1,8 +1,14 @@
 import styled from 'styled-components'
 
 export const HeaderContainer = styled.header`
-  background: ${({ theme }) => theme.backgroundGradient};
-  height: 6.5rem;
+  /* background: ${({ theme }) => theme.backgroundGradient}; */
+  background: rgb(120, 86, 254);
+  background: linear-gradient(
+    90deg,
+    rgba(120, 86, 254, 1) 0%,
+    rgba(193, 69, 175, 1) 57%
+  );
+  height: 5.8rem;
   width: 100%;
   box-shadow: 0px 3px 12px rgba(69, 62, 7, 0.3);
   display: flex;

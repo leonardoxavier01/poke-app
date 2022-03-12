@@ -6,8 +6,13 @@ export const FooterContainer = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 17.43rem;
-  box-shadow: 0px 3px 12px rgba(69, 62, 7, 0.3);
+  height: 15.43rem;
+  background: rgb(120, 86, 254);
+  background: linear-gradient(
+    90deg,
+    rgba(120, 86, 254, 1) 0%,
+    rgba(193, 69, 175, 1) 57%
+  );
 `
 
 export const LogoAwari = styled.img`

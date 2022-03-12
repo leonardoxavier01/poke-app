@@ -46,18 +46,37 @@ export const PokemonUl = styled.ul`
   grid-gap: 20px;
   padding-inline-start: 0;
   li {
+    width: 15rem;
     list-style: none;
     padding: 40px;
-    background-color:aqua;
+    background: rgb(120, 86, 254);
+    background: linear-gradient(
+      90deg,
+      rgba(120, 86, 254, 0.29735644257703087) 0%,
+      rgba(193, 69, 175, 0.3449754901960784) 57%
+    );
     text-align: center;
     border-radius: 20px;
     position: relative;
+    box-shadow: 0px 6px 16px -1px rgba(0, 0, 0, 0.66);
+    ::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 45%;
+      border-radius: 100%;
+      background-color: #9172d4;
+      opacity: 0.7;
+      position: absolute;
+      top: 15%;
+      left: 25%;
+    }
   }
   h2 {
     text-transform: capitalize;
     margin-bottom: 0px;
     font-size: 32px;
-    font-weight: normal;
+    font-weight: bold;
     position: relative;
     z-index: 2;
   }
@@ -65,5 +84,14 @@ export const PokemonUl = styled.ul`
     height: 180px;
     position: relative;
     z-index: 2;
+  }
+  button {
+    height: 2.3125rem;
+    border-radius: ${({ theme }) => theme.pxToRem(24)};
+    background-color: rgba(120, 86, 254, 1);
+    border: 0px;
+    color: ${({ theme }) => theme.white};
+    padding: 0.75rem 2rem;
+    cursor: pointer;
   }
 `
