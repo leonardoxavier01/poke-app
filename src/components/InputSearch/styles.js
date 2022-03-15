@@ -6,6 +6,7 @@ export const SearchContainer = styled.div`
   justify-content: center;
   max-width: 964px;
   width: 100%;
+  margin-right: 100px;
 `
 
 export const SearchWrapper = styled.div`

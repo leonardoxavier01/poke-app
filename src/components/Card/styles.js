@@ -46,6 +46,7 @@ export const PokemonUl = styled.ul`
   grid-gap: 20px;
   padding-inline-start: 0;
   li {
+    margin: 0.9375rem;
     width: 15rem;
     list-style: none;
     padding: 40px;
