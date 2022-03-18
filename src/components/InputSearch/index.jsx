@@ -1,11 +1,21 @@
 import React from "react";
+import { filterPokemons } from "../Card";
 
 import { SearchContainer, SearchWrapper, Input } from "./styles";
 
-const InputSearch =() =>(
+function handleFilter(filter){
+console.log(filter)
+}
+
+const InputSearch = () => (
     <SearchContainer>
         <SearchWrapper>
-            <Input placeholder="Search"/>
+            <input type="text" placeholder="Search by name"
+                onChange={(event) => {
+                    const valor = event.target.value;
+                    handleFilter(valor);
+                }}
+            />
         </SearchWrapper>
     </SearchContainer>
 )

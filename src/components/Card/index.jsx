@@ -3,8 +3,18 @@ import { PokemonUl } from './styles'
 
 const getPokemonUrl = (id) => `https://pokeapi.co/api/v2/pokemon/${id}`
 
+export function filterPokemons(filter) {
+  console.log(filter)
+  console.log(pokemons)
+  let resultPokemon = pokemons.filter(p => p.name.includes(filter))
+  let htmlResults = generateHTML(resultPokemon) 
+  insertPokemonsIntoPage(htmlResults)
+}
+
+var pokemons = new Array(12);
+
 const generatePokemonPromises = () =>
-  Array(12)
+  pokemons
     .fill()
     .map((_, index) =>
       fetch(getPokemonUrl(index + 1)).then((response) => response.json())
