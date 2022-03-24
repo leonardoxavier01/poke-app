@@ -1,5 +1,6 @@
-import React from 'react'
-import { PokemonUl } from './styles'
+
+
+/* import { PokemonUl } from './styles'
 
 const getPokemonUrl = (id) => `https://pokeapi.co/api/v2/pokemon/${id}`
 
@@ -7,15 +8,14 @@ export function filterPokemons(filter) {
   console.log(filter)
   console.log(pokemons)
   let resultPokemon = pokemons.filter(p => p.name.includes(filter))
-  let htmlResults = generateHTML(resultPokemon) 
+  let htmlResults = generateHTML(resultPokemon)
   insertPokemonsIntoPage(htmlResults)
 }
 
 var pokemons = new Array(12);
 
 const generatePokemonPromises = () =>
-  pokemons
-    .fill()
+  pokemons.fill()
     .map((_, index) =>
       fetch(getPokemonUrl(index + 1)).then((response) => response.json())
     )
@@ -50,4 +50,63 @@ const Card = () => (
   </>
 )
 
+export default Card  */
+
+import { render } from '@testing-library/react'
+import React, { Component } from 'react'
+import api from '../api'
+
+
+
+class Card extends Component {
+
+  state = {
+    pokemons: [],
+  }
+
+  async componentDidMount() {
+    const response = await api.get('/pokemon?limit=10&offset=0');
+
+    /*  console.log(response.data.results)  */
+
+    this.setState({ pokemons: response.data.results });
+
+
+  }
+
+  render() {
+
+    const { pokemons } = this.state;
+
+    console.log(pokemons); 
+
+
+    return (
+      <div>
+        <h1>Teste pokemon</h1>
+        <ul>
+          {pokemons.map(pokemon => (
+            <li>
+              <h2>Titulo:{pokemon.name} </h2>
+            </li>
+          ))}
+        </ul>
+      </div>
+    );
+  };
+};
+
 export default Card
+
+
+
+
+
+
+
+
+
+
+
+
+

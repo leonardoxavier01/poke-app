@@ -1,5 +1,5 @@
 import React from "react";
-import { filterPokemons } from "../Card";
+/* import { filterPokemons } from "../Card"; */
 
 import { SearchContainer, SearchWrapper, Input } from "./styles";
 
