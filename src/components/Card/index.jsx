@@ -84,20 +84,24 @@ class Card extends Component {
   }
 
   async componentDidMount() {
-    /* const response = await api.get(`/pokemon/bulbasaur/`);
-    this.setState({ pokemons: response.data }); */
 
+    const responseName = await api.get(`/pokemon`);
+    this.setState({ pokeName: responseName.data.results });
+    console.log(responseName.data.results)
+    
+    var namePoke = 'bulbasaur'
 
-    /* var pokemons = new Array(12); */
-
-     const id = [1]; 
-    const getPokemonUrl = `/pokemon/${id}/`
-    const response = await api.get(getPokemonUrl); 
+    const response = await api.get(`/pokemon/${namePoke}/`);
     this.setState({ pokemons: response.data });
 
-  
+
+    /* const id = [1];
+    const getPokemonUrl = `/pokemon/${id}/`
+    const response = await api.get(getPokemonUrl);
+    this.setState({ pokemons: response.data }); */
+
     console.log(response.data)
-    
+
   }
 
 
@@ -111,7 +115,6 @@ class Card extends Component {
       <div>
         <h1>Teste pokemon</h1>
         <ul>
-
           <li>
             <p>{pokemon.id}</p>
             <h2>{pokemon.name}</h2>
