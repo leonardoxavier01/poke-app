@@ -20,7 +20,7 @@ const generatePokemonPromises = () =>
      fetch(getPokemonUrl(index + 1)).then((response) => response.json())
    )
 
-const generateHTML = (pokemons) =>
+const generat = (pokemons)eHTML =>
  pokemons.reduce((accumulator, { name, id, types }) => {
    const elementTypes = types.map((typeInfo) => typeInfo.type.name)
 
@@ -79,28 +79,34 @@ class Card extends Component {
 
   state = {
     pokemons: [],
+    pokeName: [],
 
   }
 
   async componentDidMount() {
-    const id = 5;
-    const response = await api.get(`/pokemon/${id}/`);
+    /* const response = await api.get(`/pokemon/bulbasaur/`);
+    this.setState({ pokemons: response.data }); */
 
 
+    /* var pokemons = new Array(12); */
+
+     const id = [1]; 
+    const getPokemonUrl = `/pokemon/${id}/`
+    const response = await api.get(getPokemonUrl); 
     this.setState({ pokemons: response.data });
+
+  
     console.log(response.data)
+    
   }
-
-
-
-
 
 
 
   render() {
     const { pokemons } = this.state;
-    const pokemon = pokemons
-    console.log(pokemons);
+    const pokemon = pokemons;
+
+
     return (
       <div>
         <h1>Teste pokemon</h1>
@@ -112,7 +118,6 @@ class Card extends Component {
             <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${pokemon.id}.png`} alt={pokemon.name} />
             <p></p>
           </li>
-
         </ul>
       </div>
     );
