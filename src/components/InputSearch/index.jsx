@@ -10,7 +10,7 @@ console.log(filter)
 const InputSearch = () => (
     <SearchContainer>
         <SearchWrapper>
-            <input type="text" placeholder="Search by name"
+            <Input type="text" placeholder="Search by name"
                 onChange={(event) => {
                     const valor = event.target.value;
                     handleFilter(valor);

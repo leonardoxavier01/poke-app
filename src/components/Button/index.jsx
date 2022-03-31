@@ -6,4 +6,4 @@ const Button = ({ children, ...props }) => (
   <ButtonStyled {...props}>{children}</ButtonStyled>
 )
 
-export default Button
+export default Button;

@@ -1,9 +1,8 @@
-
-import Button from '../Button';
+import Button from './Button';
 import React from 'react'
-import { CardWrapper, PokemonContainer, PokemonImage, PokemonName, PokeType } from './styles';
+import { CardWrapper, PokemonContainer, PokemonImage, PokemonName, PokeType } from './Card/styles';
 
-const Card = ({ id, image, name, type }) => {
+const Testpokemon = ({ id, image, name, type }) => {
     return (
         <CardWrapper >
             <PokemonContainer>
@@ -17,17 +16,4 @@ const Card = ({ id, image, name, type }) => {
     )
 }
 
-export default Card
-
-
-
-
-
-
-
-
-
-
-
-
-
+export default Testpokemon
