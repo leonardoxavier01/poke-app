@@ -2,9 +2,6 @@ import styled from "styled-components";
 
 
 export const PokeListContainer = styled.div`
-
-/* margin: 6rem;
-margin-left: 25rem; */
 display: flex;
 justify-content: center;
 align-items: center;

@@ -10,6 +10,10 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: transform 100ms ease-in-out;
+  :hover {
+    transform: scale(1.05);
+  }
 `
 export const PokemonContainer = styled.div`
   width: 100%;
@@ -38,13 +42,13 @@ export const PokemonName = styled.h3`
   text-transform: capitalize;
 `
 export const PokeType = styled.div`
-display: flex;
-flex-direction: row;
-align-items: center;
-gap: 5px;
-text-transform:capitalize;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  text-transform: capitalize;
 `
 
 export const Icon = styled.svg`
-width: 80%;
-` 
+  width: 80%;
+`

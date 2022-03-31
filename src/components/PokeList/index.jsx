@@ -2,9 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { PokeListContainer, PokeListWrapper } from './styles'
 import Card from '../Card'
 
-import api from '../api'
-
-
 const PokeList = () => {
 
   const [allPokemons, setAllPokemons] = useState([])
@@ -25,34 +22,11 @@ const PokeList = () => {
       })
     }
     createPokemonObject(data.results)
-    
   }
 
   useEffect(() => {
     getAllPokemons()
   }, [])
-
- 
-
-  const [input, setInput] = useState("");
-  const [searchPokemon, setCep] = useState({});
-  async function handleSearch() {
-    if (input === "") {
-      alert("Preencha o Campo!");
-    }
-    try {
-      const response = await api.get(`/pokemon/${input}`);
-      
-      console.log(allPokemons)
-
-      setCep(response.data);
-      console.log(response.data);
-      setInput("");
-    } catch {
-      alert("erro ao buscar!");
-      setInput("");
-    }
-  }
 
   return (
     <PokeListContainer>
