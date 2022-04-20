@@ -5,7 +5,6 @@ import { InputSearch } from "..";
 
 const PokeSection =() => (
     <Section>
-        <InputSearch/>
         <PokeList/>
     </Section>
 )

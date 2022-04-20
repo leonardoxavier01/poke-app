@@ -1,6 +1,6 @@
 import React from "react";
 
-import { SearchContainer, SearchWrapper, Input } from "./styles";
+import { SearchContainer} from "./styles";
 import { FiSearch } from "react-icons/fi";
 
 const InputSearch = ({value, onChange, onClick}) => {
