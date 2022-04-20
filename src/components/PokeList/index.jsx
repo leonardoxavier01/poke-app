@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { PokeListContainer, PokeListWrapper } from './styles'
 import Card from '../Card'
 import InputSearch from '../InputSearch'
+import ButtonLoad from '../ButtonLoad/ButtonLoad'
 import baseUrl from '../../Services/pokeApiAxios'
 
 const PokeList = () => {
@@ -70,6 +71,11 @@ const PokeList = () => {
               type={pokemonStats.types[0].type.name}
             />)}
         </PokeListWrapper>
+        {!!(input === '') && (
+          <ButtonLoad
+            text='Load more'
+            onClick={() => getAllPokemons()} />
+        )}
       </div>
 
     </PokeListContainer>)
