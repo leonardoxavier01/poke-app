@@ -13,6 +13,8 @@ export const theme = {
   flying: '#a891ec',
   water: '#6493eb',
   dark: '#75574c',
-  backgroundGradient: 'linear-gradient(270deg, #44cca6 0%, #bbd995 100%)',
+  backgroundGradient: 'linear-gradient(90deg,rgba(120, 86, 254, 1) 0%, rgba(193, 69, 175, 1) 57%)',
+  
   pxToRem: (px) => `${px / 16}rem`,
+  
 }
