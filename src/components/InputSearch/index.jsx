@@ -1,23 +1,19 @@
 import React from "react";
-/* import { filterPokemons } from "../Card"; */
 
 import { SearchContainer, SearchWrapper, Input } from "./styles";
+import { FiSearch } from "react-icons/fi";
 
-function handleFilter(filter){
-console.log(filter)
+const InputSearch = ({value, onChange, onClick}) => {
+    return (
+        <SearchContainer>
+                <input type="text" 
+                placeholder="Search by name"
+                value={value}
+                onChange={onChange}
+                />
+                <button onClick={onClick} ><FiSearch size={20} /></button>
+        </SearchContainer>
+    )
 }
-
-const InputSearch = () => (
-    <SearchContainer>
-        <SearchWrapper>
-            <Input type="text" placeholder="Search by name"
-                onChange={(event) => {
-                    const valor = event.target.value;
-                    handleFilter(valor);
-                }}
-            />
-        </SearchWrapper>
-    </SearchContainer>
-)
 
 export default InputSearch;

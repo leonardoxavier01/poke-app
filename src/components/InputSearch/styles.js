@@ -1,22 +1,32 @@
 import styled from 'styled-components'
 
 export const SearchContainer = styled.div`
-  height: 5rem;
+  background-color: white;
+  padding: 15px;
+  margin: 35px 0;
   display: flex;
-  justify-content: center;
-  max-width: 964px;
-  width: 100%;
-`
-
-export const SearchWrapper = styled.div`
-  width: 100%;
-`
-
-export const Input = styled.input`
-  border-radius: 8px;
-  color: var(--black);
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  min-width: 300px;
-  height: 2.375rem;
-  padding: 0px 1rem;
+  border-radius: 6.25rem;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+  width: 16.5rem;
+  border: 2px solid ${({ theme }) => theme.lightGrey};
+  input {
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    color: var(--black);
+    outline: none;
+    width: 90%;
+  }
+  button {
+    background-color: transparent;
+    border: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: transform 0.5s;
+    :hover {
+      transform: scale(1.2);
+    }
+  }
 `
