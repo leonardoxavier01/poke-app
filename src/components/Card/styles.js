@@ -2,28 +2,30 @@ import styled from 'styled-components'
 
 export const CardWrapper = styled.div`
   background: ${({ theme }) => theme.white};
+  border: 2px solid ${({ theme }) => theme.lightGrey};
   box-shadow: 0px 12px 40px -5px rgba(28, 29, 4, 0.15);
-  border-radius: 12px;
+  border-radius: 2.188rem;
   width: 18.75rem;
   height: 21.375rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  transition: transform 100ms ease-in-out;
+  transition: transform 0.5s;
   :hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 `
 export const PokemonContainer = styled.div`
   width: 100%;
-  height: 10rem;
   display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
-  position: relative;
-  margin-bottom: 0.5rem;
+  align-items: center;
+  justify-content: center;
+  .id {
+    font-weight: 500;
+    margin-right: 13rem;
+  }
 `
 export const PokemonImage = styled.img`
   width: 9.5rem;
@@ -47,6 +49,7 @@ export const PokeType = styled.div`
   align-items: center;
   gap: 5px;
   text-transform: capitalize;
+  font-weight: 500;
 `
 
 export const Icon = styled.svg`

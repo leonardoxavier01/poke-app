@@ -1,16 +1,15 @@
-
-import Button from '../Button';
 import React from 'react'
+import Button from '../Button';
 import { CardWrapper, PokemonContainer, PokemonImage, PokemonName, PokeType } from './styles';
 
 const Card = ({ id, image, name, type }) => {
     return (
         <CardWrapper >
             <PokemonContainer>
-                <PokeType><small>#0{id}</small></PokeType>
+                <small className='id'>#0{id}</small>
                 <PokemonImage src={image} alt={name} />
                 <PokemonName>{name}</PokemonName>
-                <PokeType><small>{type}</small><img src={`https://codeboost.com.br/projetos/pokeapi/img/${type}.svg`} alt="" /></PokeType>
+                <PokeType><small>{type}</small><img src={`https://codeboost.com.br/projetos/pokeapi/img/${type}.svg`} alt="Type Icon" /></PokeType>
                 <Button>See More</Button>
             </PokemonContainer>
         </CardWrapper>
