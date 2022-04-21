@@ -7,7 +7,7 @@ import baseUrl from '../../Services/pokeApiAxios'
 
 const PokeList = () => {
   const [allPokemons, setAllPokemons] = useState([])
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
+  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
   const [input, setInput] = useState('')
   
   const getAllPokemons = async () => {
