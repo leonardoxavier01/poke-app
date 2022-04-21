@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const SearchContainer = styled.div`
   background-color: white;
   padding: 15px;
-  margin: 35px 0;
   display: flex;
   border-radius: 6.25rem;
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
