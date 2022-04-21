@@ -4,12 +4,14 @@ import Card from '../Card'
 import InputSearch from '../InputSearch'
 import ButtonLoad from '../ButtonLoad/ButtonLoad'
 import baseUrl from '../../Services/pokeApiAxios'
+import './styles.css'
+
 
 const PokeList = () => {
   const [allPokemons, setAllPokemons] = useState([])
   const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
   const [input, setInput] = useState('')
-  
+
   const getAllPokemons = async () => {
     const res = await fetch(loadMore)
     const data = await res.json()
@@ -53,14 +55,51 @@ const PokeList = () => {
     }
   }
 
+
+  const [users, setUsers] = useState([])
+  const [suggestions, setSeggestions] = useState([])
+
+  useEffect(() => {
+    const loadUsers = async () => {
+      const response = await baseUrl.get(`/pokemon?limit=200`)
+      console.log(response.data.results)
+      setUsers(response.data.results)
+    }
+    loadUsers()
+  }, [])
+
+  const onSuggestHandle = (input) => {
+    setInput(input);
+    setSeggestions([]);
+  }
+  const onChangeHandler = (input) => {
+    let matches = []
+    if (input.length > 0) {
+      matches = users.filter(user => {
+        const regex = new RegExp(`${input}`, "gi")
+        return user.name.match(regex)
+      })
+    }
+    console.log('matches', matches)
+    setSeggestions(matches)
+    setInput(input)
+  }
+
+
   return (
     <PokeListContainer>
       <div>
         <InputSearch
           value={input}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e) => onChangeHandler(e.target.value)}
           onClick={handleSearch}
-        />
+        >
+        <ul className='test'>
+          {suggestions && suggestions.map((suggestions, i) =>
+            <li className='list' key={i} onClick={() => onSuggestHandle(suggestions.name)} >{suggestions.name}</li>
+          )}
+        </ul>
+        </InputSearch>
         <PokeListWrapper className="all-container">
           {allPokemons.map((pokemonStats, index) =>
             <Card
