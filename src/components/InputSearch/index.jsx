@@ -1,8 +1,7 @@
 import React from 'react'
 import { SearchContainer } from "./styles";
-import { FiSearch } from "react-icons/fi";
 
-const InputSearch = ({ value, onClick, onChange, onBlur, children}) => {
+const InputSearch = ({ value, onChange, onBlur, children}) => {
     return (
         <>
             <SearchContainer>
@@ -12,7 +11,6 @@ const InputSearch = ({ value, onClick, onChange, onBlur, children}) => {
                     onChange={onChange}
                     onBlur={onBlur}
                 />
-                <button onClick={onClick} ><FiSearch size={20} /></button>
             </SearchContainer>
            {children}
         </>

@@ -11,6 +11,8 @@ const PokeList = () => {
   const [allPokemons, setAllPokemons] = useState([])
   const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
   const [input, setInput] = useState('')
+  const [users, setUsers] = useState([])
+  const [suggestions, setSeggestions] = useState([])
 
   const getAllPokemons = async () => {
     const res = await fetch(loadMore)
@@ -40,24 +42,21 @@ const PokeList = () => {
     getAllPokemons()
   }, [])
 
-  async function handleSearch() {
-    if (input === '') {
+  async function handleSearch(input) {
+    if (setInput === '') {
       location.reload();
     }
     try {
       const inputPokemon = input.toLowerCase();
       const response = await baseUrl.get(`/pokemon/${inputPokemon}`)
       cretePokemonSearch(response.data)
-      setInput(input)
+      setInput('')
+      setSeggestions([]);
     } catch {
-      alert('Digite um nome correto!')
+      alert('Ops houve um erro por aqui')
       setInput('')
     }
   }
-
-
-  const [users, setUsers] = useState([])
-  const [suggestions, setSeggestions] = useState([])
 
   useEffect(() => {
     const loadUsers = async () => {
@@ -68,10 +67,6 @@ const PokeList = () => {
     loadUsers()
   }, [])
 
-  const onSuggestHandle = (input) => {
-    setInput(input);
-    setSeggestions([]);
-  }
   const onChangeHandler = (input) => {
     let matches = []
     if (input.length > 0) {
@@ -80,11 +75,9 @@ const PokeList = () => {
         return user.name.match(regex)
       })
     }
-    console.log('matches', matches)
     setSeggestions(matches)
     setInput(input)
   }
-
 
   return (
     <PokeListContainer>
@@ -94,11 +87,11 @@ const PokeList = () => {
           onChange={(e) => onChangeHandler(e.target.value)}
           onClick={handleSearch}
         >
-        <ul className='test'>
-          {suggestions && suggestions.map((suggestions, i) =>
-            <li className='list' key={i} onClick={() => onSuggestHandle(suggestions.name)} >{suggestions.name}</li>
-          )}
-        </ul>
+          <ul className='test'>
+            {suggestions && suggestions.map((suggestions, i) =>
+              <li className='list' key={i} onClick={() => handleSearch(suggestions.name)} >{suggestions.name}</li>
+            )}
+          </ul>
         </InputSearch>
         <PokeListWrapper className="all-container">
           {allPokemons.map((pokemonStats, index) =>
@@ -110,11 +103,9 @@ const PokeList = () => {
               type={pokemonStats.types[0].type.name}
             />)}
         </PokeListWrapper>
-        {!!(input === '') && (
-          <ButtonLoad
-            text='Load more'
-            onClick={() => getAllPokemons()} />
-        )}
+        <ButtonLoad
+          text='Load more'
+          onClick={() => getAllPokemons()} />
       </div>
 
     </PokeListContainer>)
