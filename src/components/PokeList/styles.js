@@ -6,7 +6,7 @@ background-color: #DC0A2D;
 display: flex;
 justify-content: center;
 align-items: center;
-width: 85%;
+min-width: 100%;
 border-radius: 7rem;
 border:2rem groove #8C082C;
 box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
