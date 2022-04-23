@@ -10,7 +10,6 @@ export const HeaderContainer = styled.header`
   );
   height: 5.8rem;
   width: 100%;
-  box-shadow: 0px 3px 12px rgba(69, 62, 7, 0.3);
   display: flex;
   flex-direction: row;
   align-items: center;

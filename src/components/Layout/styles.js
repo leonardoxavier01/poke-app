@@ -11,5 +11,5 @@ export const MainContent = styled.main`
   display: flex;
   flex: 1;
   flex-direction: column;
-  padding-top: ${({ theme }) => theme.pxToRem(105)};
+  padding-top: ${({ theme }) => theme.pxToRem(90)};
 `

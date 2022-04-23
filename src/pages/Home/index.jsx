@@ -3,13 +3,17 @@ import React from 'react'
 import { SideMenu } from '@components'
 import { Container} from './styles'
 import Icon from '../../components/Icon'
-import PokeSection from '../../components/PokeSection/indes'
+import PokeSection from '../../components/PokeSection/index'
+import SectionPokedex from '../../components/SectionPokedex/index'
 
 const Home = () => {
   return (
-    <Container>
-       <PokeSection/>
-    </Container>
+    <>
+      <SectionPokedex/>
+      <Container>
+         <PokeSection/>
+      </Container>
+    </>
   )
 }
 
