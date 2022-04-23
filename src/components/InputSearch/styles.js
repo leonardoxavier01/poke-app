@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const SearchContainer = styled.div`
+  margin-top: 2.4rem;
   background-color: white;
   padding: 15px;
   display: flex;

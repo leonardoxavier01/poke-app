@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 
 export const ContainerButton = styled.div`
-display: flex;
-justify-content: center;
-margin-top: 1.9rem;
+  display: flex;
+  justify-content: center;
+  margin: 2.4rem 0;
 `
 export const ButtonLoadMore = styled.button`
-  background: rgba(120, 86, 254, 0.80);
+  background: rgba(120, 86, 254, 0.8);
   color: black;
   font-weight: 600;
   border: 1px solid black;
