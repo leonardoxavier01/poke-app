@@ -10,7 +10,7 @@ const InputSearch = ({ value, onChange, onBlur, children}) => {
                     value={value}
                     onChange={onChange}
                     onBlur={onBlur}
-                />
+                />             
             </SearchContainer>
            {children}
         </>

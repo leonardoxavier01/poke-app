@@ -6,7 +6,7 @@ export const SearchContainer = styled.div`
   display: flex;
   border-radius: 6.25rem;
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
-  width: 16.5rem;
+  width: 48%;
   border: 2px solid ${({ theme }) => theme.lightGrey};
   input {
     background-color: transparent;
