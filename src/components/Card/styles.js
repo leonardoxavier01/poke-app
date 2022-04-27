@@ -46,10 +46,14 @@ export const PokemonName = styled.h3`
 export const PokeType = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 5px;
   text-transform: capitalize;
   font-weight: 500;
+  img{
+    width: 5%;
+  }
 `
 
 export const Icon = styled.svg`
