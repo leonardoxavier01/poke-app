@@ -1,4 +1,4 @@
-## projeto do curso
+## Projeto Web Pokedex
 
 ## Requisitos
 
