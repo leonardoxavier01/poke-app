@@ -3,7 +3,7 @@ import { SearchContainer } from "./styles";
 
 const InputSearch = ({ value, onChange, onBlur, children}) => {
     return (
-        <>
+        <div>
             <SearchContainer>
                 <input type="text"
                     placeholder="Search by name"
@@ -13,7 +13,7 @@ const InputSearch = ({ value, onChange, onBlur, children}) => {
                 />             
             </SearchContainer>
            {children}
-        </>
+        </div>
     )
 }
 

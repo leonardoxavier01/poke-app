@@ -13,7 +13,7 @@ const Card = ({ id, image, name, type }) => {
                 <PokemonImage src={image} alt={name} />
                 <PokemonName>{name}</PokemonName>
                 <PokeType><small>{type}</small><img src={Type[type]} alt="Type Icon" /></PokeType>
-                <Button>See More</Button>
+                <Button color={'#44cca6'}>See More</Button>
             </PokemonContainer>
         </CardWrapper>
     )

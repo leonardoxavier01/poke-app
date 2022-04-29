@@ -3,13 +3,13 @@ import styled from "styled-components";
 export const PokeListContainer = styled.div`
 max-width: 80%;
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
 margin-left: 1rem;
 `
 
 export const PokeListWrapper = styled.div`
-background-color: #d6c5fa;
 padding: 2rem;
 margin-top: 3rem;
 display: grid;
