@@ -94,11 +94,9 @@ const Home = () => {
               />
             )}
           </InputSearch>
-         
-            {allPokemons.length > 0 && (
-              <Posts posts={allPokemons} />
-            )}
-         
+          {allPokemons.length > 0 && (
+            <Posts posts={allPokemons} />
+          )}
           <ButtonLoad
             text='Load more'
             onClick={() => getAllPokemons()} />
