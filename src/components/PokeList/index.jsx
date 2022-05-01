@@ -6,6 +6,7 @@ import ButtonLoad from '../ButtonLoad/ButtonLoad'
 import Suggestions from '../Suggestions'
 import ButtonSearch from '../ButtonSearch'
 import { PokeListContainer, PokeListWrapper } from './styles'
+import Posts from '../Posts'
 
 const PokeList = () => {
   const [allPokemons, setAllPokemons] = useState([])
@@ -93,14 +94,9 @@ const PokeList = () => {
           </Suggestions>
         </InputSearch>
         <PokeListWrapper>
-          {allPokemons.map((pokemonStats, index) =>
-            <Card
-              key={index}
-              id={pokemonStats.id}
-              image={pokemonStats.sprites.other.dream_world.front_default}
-              name={pokemonStats.name}
-              type={pokemonStats.types[0].type.name}
-            />)}
+          {allPokemons.length > 0 && (
+            <Posts posts={allPokemons} />
+          )}
         </PokeListWrapper>
         <ButtonLoad
           text='Load more'
