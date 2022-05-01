@@ -4,7 +4,7 @@ import { InputSearch } from '../../components'
 import { ButtonLoad } from '../../components'
 import { Suggestions } from '../../components'
 import { Posts } from '../../components'
-import { Container, PokeListContent, PokeListWrapper } from './styles'
+import { Container, PokeListContent } from './styles'
 
 const Home = () => {
 
@@ -40,6 +40,12 @@ const Home = () => {
 
   useEffect(() => {
     getAllPokemons()
+    const loadUsers = async () => {
+      const response = await baseUrl.get(`/pokemon?limit=649`)
+      console.log(response.data.results)
+      setUsers(response.data.results)
+    }
+    loadUsers()
   }, [])
 
   async function handleSearch(input) {
@@ -57,15 +63,6 @@ const Home = () => {
       setInput('')
     }
   }
-
-  useEffect(() => {
-    const loadUsers = async () => {
-      const response = await baseUrl.get(`/pokemon?limit=649`)
-      console.log(response.data.results)
-      setUsers(response.data.results)
-    }
-    loadUsers()
-  }, [])
 
   const onChangeHandler = (input) => {
     let matches = []

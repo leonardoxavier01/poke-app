@@ -2,7 +2,7 @@ import React from 'react'
 import ButtonSearch from '../ButtonSearch'
 import { SuggestionsContainer } from './styles'
 
-const Suggestions = ({ search, onClick, key }) => (
+const Suggestions = ({ search, onClick}) => (
   <>
     <SuggestionsContainer>
       {search && search.map((search, index) =>
