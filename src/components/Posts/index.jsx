@@ -1,8 +1,9 @@
 import React from 'react'
 import Card from '../Card'
+import { PokeListWrapper } from './styles'
 
 const Posts = ({ posts }) => (
-    <>
+    <PokeListWrapper>
         {posts.map(post => (
             <Card
                 key={post.id}
@@ -12,7 +13,7 @@ const Posts = ({ posts }) => (
                 type={post.types[0].type.name}
             />
         ))}
-    </>
+    </PokeListWrapper>
 )
 
 

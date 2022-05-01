@@ -94,11 +94,11 @@ const Home = () => {
               />
             )}
           </InputSearch>
-          <PokeListWrapper>
+         
             {allPokemons.length > 0 && (
               <Posts posts={allPokemons} />
             )}
-          </PokeListWrapper>
+         
           <ButtonLoad
             text='Load more'
             onClick={() => getAllPokemons()} />
