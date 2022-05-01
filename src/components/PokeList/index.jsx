@@ -87,11 +87,12 @@ const PokeList = () => {
           value={input}
           onChange={(e) => onChangeHandler(e.target.value)}
           onClick={handleSearch}>
-          <Suggestions>
-            {suggestions && suggestions.map((suggestions, i) =>
-              <ButtonSearch key={i} onClick={() => handleSearch(suggestions.name)} >{suggestions.name}</ButtonSearch>
-            )}
-          </Suggestions>
+          {suggestions.length > 0 && (
+            <Suggestions
+              search={suggestions}
+              onClick={handleSearch}
+            />
+          )}
         </InputSearch>
         <PokeListWrapper>
           {allPokemons.length > 0 && (

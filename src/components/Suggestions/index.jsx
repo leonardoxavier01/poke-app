@@ -1,9 +1,20 @@
 import React from 'react'
-
+import ButtonSearch from '../ButtonSearch'
 import { SuggestionsContainer } from './styles'
 
-const Suggestions = ({ children }) => (
-  <SuggestionsContainer>{children}</SuggestionsContainer>
+const Suggestions = ({ search, onClick, key }) => (
+  <>
+    <SuggestionsContainer>
+      {search && search.map((search, index) =>
+        <ButtonSearch
+          key={index}
+          onClick={() => onClick(search.name)}
+        >
+          {search.name}
+        </ButtonSearch>
+      )}
+    </SuggestionsContainer>
+  </>
 )
 
 export default Suggestions
