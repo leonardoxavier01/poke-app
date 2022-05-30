@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const SuggestionsContainer = styled.div`
-  width: 32.5rem;
+  width: 30rem;
   position: absolute;
   z-index: 3;
   border-radius: 2rem;
