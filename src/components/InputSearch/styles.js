@@ -7,8 +7,9 @@ export const SearchContainer = styled.div`
   display: flex;
   border-radius: 6.25rem;
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
-  width: 48%;
+  width: 29rem;
   border: 2px solid ${({ theme }) => theme.lightGrey};
+  
   input {
     background-color: transparent;
     border: 0;

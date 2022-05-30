@@ -1,16 +1,16 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
+  margin-top: 1.5rem;
   display: flex;
   height: 100%;
   align-items: center;
   flex-direction: column;
 `
-export const PokeListContent = styled.div`
+export const PokeContent = styled.div`
   max-width: 80%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
-  margin-left: 1rem;
 `

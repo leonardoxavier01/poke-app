@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
-import baseUrl from '../../services/pokeApiAxios'
-import { InputSearch } from '../../components'
-import { ButtonLoad } from '../../components'
-import { Suggestions } from '../../components'
-import { PokeList } from '../../components'
-import { Container, PokeContent } from './styles'
+import baseUrl from '../../Services/pokeApiAxios'
+import Card from '../Card'
+import InputSearch from '../InputSearch'
+import ButtonLoad from '../ButtonLoad'
+import Suggestions from '../Suggestions'
+import ButtonSearch from '../ButtonSearch'
+import { PokeListContainer, PokeListWrapper } from './styles'
+import Posts from '../PokeList'
 
-const Home = () => {
-
+const PokeListOld = () => {
   const [allPokemons, setAllPokemons] = useState([])
   const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
   const [input, setInput] = useState('')
@@ -40,12 +41,6 @@ const Home = () => {
 
   useEffect(() => {
     getAllPokemons()
-    const loadUsers = async () => {
-      const response = await baseUrl.get(`/pokemon?limit=649`)
-      console.log(response.data.results)
-      setUsers(response.data.results)
-    }
-    loadUsers()
   }, [])
 
   async function handleSearch(input) {
@@ -64,6 +59,15 @@ const Home = () => {
     }
   }
 
+  useEffect(() => {
+    const loadUsers = async () => {
+      const response = await baseUrl.get(`/pokemon?limit=649`)
+      console.log(response.data.results)
+      setUsers(response.data.results)
+    }
+    loadUsers()
+  }, [])
+
   const onChangeHandler = (input) => {
     let matches = []
     if (input.length > 0) {
@@ -77,8 +81,8 @@ const Home = () => {
   }
 
   return (
-    <Container>
-      <PokeContent>
+    <PokeListContainer>
+      <div>
         <InputSearch
           value={input}
           onChange={(e) => onChangeHandler(e.target.value)}
@@ -90,17 +94,17 @@ const Home = () => {
             />
           )}
         </InputSearch>
-        {allPokemons.length > 0 && (
-          <PokeList posts={allPokemons} />
-        )}
+        <PokeListWrapper>
+          {allPokemons.length > 0 && (
+            <Posts posts={allPokemons} />
+          )}
+        </PokeListWrapper>
         <ButtonLoad
           text='Load more'
           onClick={() => getAllPokemons()} />
-      </PokeContent>
-    </Container>
-  )
+      </div>
+    </PokeListContainer>)
 }
 
-export default Home
 
-
+export default PokeListOld
