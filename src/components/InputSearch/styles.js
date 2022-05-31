@@ -29,4 +29,7 @@ export const SearchContainer = styled.div`
       transform: scale(1.2);
     }
   }
+  @media (max-width: 450px) {
+     width: 22rem;
+    }
 `

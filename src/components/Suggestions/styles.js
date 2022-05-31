@@ -27,4 +27,7 @@ export const SuggestionsContainer = styled.div`
     background: #c145af;
     border: 4px solid rgba(0, 0, 0, 0.2);
   }
+  @media (max-width: 450px) {
+     width: 24rem;
+    }
 `
