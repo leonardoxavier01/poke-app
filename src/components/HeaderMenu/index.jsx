@@ -20,16 +20,16 @@ const HeaderMenu = () => {
                     <nav>
                         <ul>
                             <li>
-                                <a href="/">HOME</a>
+                                <Link to={"/"}>home</Link>
                             </li>
                             <li>
                                 <Link to={"/about"}>about test</Link>
                             </li>
                             <li>
-                                <a href="#">Pokedex</a>
+                                <a href="https://www.figma.com/file/JRMiIQLxO0QfVfux5VWZa5/Estudo-de-caso-Awari?node-id=0%3A1">design</a>
                             </li>
                             <li>
-                                <a href="#">Games & Apps</a>
+                                <a href="https://pokeapi.co/">Poke Api</a>
                             </li>
                         </ul>
                     </nav>
