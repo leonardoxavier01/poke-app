@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logoPokemon from '@assets/images/logo.png'
 import './styles.css';
+import { Link } from 'react-router-dom';
 
 const HeaderMenu = () => {
 
@@ -31,7 +32,7 @@ const HeaderMenu = () => {
                                 <a href="#">Games & Apps</a>
                             </li>
                             <li>
-                                <a href="#">Guides</a>
+                                <Link to={"/about"}>about test</Link>
                             </li>
                         </ul>
                     </nav>
