@@ -23,16 +23,13 @@ const HeaderMenu = () => {
                                 <a href="/">HOME</a>
                             </li>
                             <li>
-                                <a href="/about">About</a>
+                                <Link to={"/about"}>about test</Link>
                             </li>
                             <li>
                                 <a href="#">Pokedex</a>
                             </li>
                             <li>
                                 <a href="#">Games & Apps</a>
-                            </li>
-                            <li>
-                                <Link to={"/about"}>about test</Link>
                             </li>
                         </ul>
                     </nav>
