@@ -3,13 +3,12 @@ import Header from '../Header'
 import Footer from '../Footer'
 import SectionPokedex from '../SectionPokedex'
 import { Container, MainContent } from './styles'
-
-const headerItems = ['Home', 'Pokedex', 'Games & Apps', 'Guides']
+import HeaderMenu from '../HeaderMenu'
 
 const Layout = ({ children }) => (
   <Container>
-    <Header headerItems={headerItems} />
-    <SectionPokedex/>
+    <HeaderMenu />
+    <SectionPokedex />
     <MainContent>{children}</MainContent>
     <Footer />
   </Container>
