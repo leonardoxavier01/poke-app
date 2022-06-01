@@ -7,7 +7,7 @@ display: grid;
 grid-column-gap: 32px;
 grid-row-gap: 52px;
 border-radius: 50px 50px 50px 50px;
-border: 0.4rem solid #A2A3A3;
+border: 0.3rem solid  rgba(193, 69, 175, 1) ;
 @media (min-width: 600px) {
    grid-template-columns: repeat(2, 1fr); 
 }
