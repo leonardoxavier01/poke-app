@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import baseUrl from '../../services/pokeApiAxios'
-import { InputSearch } from '../../components'
+import { InputSearch, SectionPokedex } from '../../components'
 import { ButtonLoad } from '../../components'
 import { Suggestions } from '../../components'
 import { PokeList } from '../../components'
@@ -77,27 +77,30 @@ const Home = () => {
   }
 
   return (
-    <Container>
-      <PokeContent>
-        <InputSearch
-          value={input}
-          onChange={(e) => onChangeHandler(e.target.value)}
-          onClick={handleSearch}>
-          {suggestions.length > 0 && (
-            <Suggestions
-              search={suggestions}
-              onClick={handleSearch}
-            />
+    <>
+      <SectionPokedex />
+      <Container>
+        <PokeContent>
+          <InputSearch
+            value={input}
+            onChange={(e) => onChangeHandler(e.target.value)}
+            onClick={handleSearch}>
+            {suggestions.length > 0 && (
+              <Suggestions
+                search={suggestions}
+                onClick={handleSearch}
+              />
+            )}
+          </InputSearch>
+          {allPokemons.length > 0 && (
+            <PokeList posts={allPokemons} />
           )}
-        </InputSearch>
-        {allPokemons.length > 0 && (
-          <PokeList posts={allPokemons} />
-        )}
-        <ButtonLoad
-          text='Load more'
-          onClick={() => getAllPokemons()} />
-      </PokeContent>
-    </Container>
+          <ButtonLoad
+            text='Load more'
+            onClick={() => getAllPokemons()} />
+        </PokeContent>
+      </Container>
+    </>
   )
 }
 
