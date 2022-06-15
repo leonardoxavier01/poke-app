@@ -5,7 +5,6 @@ import { ButtonLoad } from '../../components'
 import { Suggestions } from '../../components'
 import { PokeList } from '../../components'
 import { Container, PokeContent } from './styles'
-import PokeInfo from '../../components/PokeInfo'
 
 const Home = () => {
   const [allPokemons, setAllPokemons] = useState([])
