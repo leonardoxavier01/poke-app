@@ -1,30 +1,40 @@
 import React, { useState, useEffect } from 'react'
-import './styles.css'
 import pokedex from '../../assets/images/pokedex.png'
 import pokeball from '../../assets/images/pokeball.png'
+import { Container, Texts, BoxImage } from './styles'
+
 const SectionPokedex = () => {
-  const [image, setImage] = useState(pokedex);
+  const imagesArray = [pokedex, pokeball]
+  const [image, setImage] = useState(0)
+  const [imageAlt, setImageAlt] = useState('pokedex')
+  const [change, setChange] = useState(false)
 
   useEffect(() => {
-    setInterval(() => {
-      setImage(pokeball);
-    }, 10000);
-    setInterval(() => {
-      setImage(pokedex);
-    }, 20000);
-  }, []);
+    const interval = setInterval(() => {
+      if (change === false) {
+        setImage(1)
+        setImageAlt('pokeball')
+        setChange(true)
+      } else {
+        setImage(0)
+        setImageAlt('pokedex')
+        setChange(false)
+      }
+    }, 10000)
+    return () => clearInterval(interval)
+  }, [change])
 
   return (
-    <div className=" header__container">
-      <div className='container__text'>
-        <h5>Hello World</h5>
+    <Container>
+      <Texts>
+        <h2>Hello World</h2>
         <h1>Discover All Pokemons</h1>
-        <h5 className="text-ligth">Web pokedex</h5>
-      </div>
-      <div className="box-image">
-        <img className='' src={image} alt="ME" />
-      </div>
-    </div>
+        <h2>Web pokedex</h2>
+      </Texts>
+      <BoxImage>
+        <img src={imagesArray[image]} alt={`image_${imageAlt}`} />
+      </BoxImage>
+    </Container>
   )
 }
 

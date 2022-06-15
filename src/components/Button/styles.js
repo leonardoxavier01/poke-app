@@ -10,4 +10,10 @@ export const ButtonStyled = styled.button`
   padding: 0.75rem 2rem;
   cursor: pointer;
   margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  z-index: 2;
+  :hover{
+    border: 1px solid black;
+  }
 `

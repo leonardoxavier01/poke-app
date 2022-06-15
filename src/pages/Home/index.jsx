@@ -5,21 +5,24 @@ import { ButtonLoad } from '../../components'
 import { Suggestions } from '../../components'
 import { PokeList } from '../../components'
 import { Container, PokeContent } from './styles'
+import PokeInfo from '../../components/PokeInfo'
 
 const Home = () => {
-
   const [allPokemons, setAllPokemons] = useState([])
-  const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=20')
+  const [loadMore, setLoadMore] = useState(
+    'https://pokeapi.co/api/v2/pokemon?limit=20'
+  )
   const [input, setInput] = useState('')
   const [users, setUsers] = useState([])
   const [suggestions, setSuggestions] = useState([])
+  const [pokeDex, setPokeDex] = useState()
 
   const getAllPokemons = async () => {
     const res = await fetch(loadMore)
     const data = await res.json()
     setLoadMore(data.next)
     function createPokemonObject(results) {
-      results.forEach(async pokemon => {
+      results.forEach(async (pokemon) => {
         const res = await fetch(pokemon.url)
         const data = await res.json()
         await cretePokemon(data)
@@ -34,7 +37,7 @@ const Home = () => {
   }
 
   const cretePokemon = async (res) => {
-    setAllPokemons(currentList => [...currentList, res])
+    setAllPokemons((currentList) => [...currentList, res])
     await allPokemons.sort((a, b) => a.id - b.id)
   }
 
@@ -50,14 +53,14 @@ const Home = () => {
 
   async function handleSearch(input) {
     if (setInput === '') {
-      location.reload();
+      location.reload()
     }
     try {
-      let inputPokemon = input.toLowerCase();
+      let inputPokemon = input.toLowerCase()
       const response = await baseUrl.get(`/pokemon/${inputPokemon}`)
       cretePokemonSearch(response.data)
       setInput('')
-      setSuggestions([]);
+      setSuggestions([])
     } catch {
       alert('Ops houve um erro por aqui')
       setInput('')
@@ -67,15 +70,15 @@ const Home = () => {
   const onChangeHandler = (input) => {
     let matches = []
     if (input.length > 0) {
-      matches = users.filter(user => {
-        const regex = new RegExp(`${input}`, "gi")
+      matches = users.filter((user) => {
+        const regex = new RegExp(`${input}`, 'gi')
         return user.name.match(regex)
       })
     }
     setSuggestions(matches)
     setInput(input)
   }
-
+  console.log(allPokemons)
   return (
     <>
       <SectionPokedex />
@@ -84,20 +87,41 @@ const Home = () => {
           <InputSearch
             value={input}
             onChange={(e) => onChangeHandler(e.target.value)}
-            onClick={handleSearch}>
+            onClick={handleSearch}
+          >
             {suggestions.length > 0 && (
-              <Suggestions
-                search={suggestions}
-                onClick={handleSearch}
-              />
+              <Suggestions search={suggestions} onClick={handleSearch} />
             )}
           </InputSearch>
-          {allPokemons.length > 0 && (
-            <PokeList posts={allPokemons} />
+          {!pokeDex && (
+            <>
+              <PokeList
+                posts={allPokemons}
+                infoPokemon={(poke) => setPokeDex(poke)}
+              />
+              <ButtonLoad text="Load more" onClick={() => getAllPokemons()} />
+            </>
           )}
-          <ButtonLoad
-            text='Load more'
-            onClick={() => getAllPokemons()} />
+          {pokeDex && (
+            <>
+              <button onClick={() => setPokeDex()}>Voltar</button>
+              <div>
+                <h1>{pokeDex.name}</h1>
+                <h2>{pokeDex.id}</h2>
+                <img
+                  src={pokeDex.sprites.other.dream_world.front_default}
+                  alt=""
+                />
+                <img src={pokeDex.sprites.back_default} alt="" />
+                <img src={pokeDex.sprites.front_default} alt="" />
+                <h3> ability: {pokeDex.abilities[0].ability.name}</h3>
+                <h3> ability: {pokeDex.abilities[1].ability.name}</h3>
+                <h3>height: {pokeDex.height}</h3>
+                <h3>weight: {pokeDex.weight}</h3>
+                <h3>base experience: {pokeDex.base_experience}</h3>
+              </div>
+            </>
+          )}
         </PokeContent>
       </Container>
     </>
@@ -105,5 +129,3 @@ const Home = () => {
 }
 
 export default Home
-
-
