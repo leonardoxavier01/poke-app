@@ -12,8 +12,9 @@ export const CardWrapper = styled.div`
   justify-content: center;
   align-items: center;
   transition: transform 0.5s;
+  cursor: pointer;
   :hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
   }
 `
 export const PokemonContainer = styled.div`
@@ -51,7 +52,7 @@ export const PokeType = styled.div`
   gap: 5px;
   text-transform: capitalize;
   font-weight: 500;
-  img{
+  img {
     width: 5%;
   }
 `
