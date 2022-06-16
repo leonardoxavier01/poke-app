@@ -7,6 +7,12 @@ import {
   MiniImages,
   BoxButtonId,
   Abilities,
+  StatsPokemon,
+  Stat,
+  BaseStat,
+  StatName,
+  Value,
+  Sizes,
 } from './styles'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 
@@ -32,8 +38,10 @@ const InfoPokemon = ({ data, onClick }) => {
     water: '#6493EB',
   }
 
+  const dividingSize = (value) => value / 10
+
   return (
-    <Container color={colors[data.types[0].type.name]}>
+    <Container key={data.id} color={colors[data.types[0].type.name]}>
       <BoxButtonId>
         <span>#0{data.id}</span>
         <button onClick={onClick}>
@@ -56,6 +64,10 @@ const InfoPokemon = ({ data, onClick }) => {
           alt={`image pokemon ${data.name}`}
         />
       </BoxImage>
+      <Sizes>
+        <h3>height: {dividingSize(data.height)}m</h3>
+        <h3>weight: {dividingSize(data.weight)}kg</h3>
+      </Sizes>
       <MiniImages>
         <div>
           <img
@@ -88,18 +100,25 @@ const InfoPokemon = ({ data, onClick }) => {
           )
         })}
       </Abilities>
-      <h3>height: {data.height}</h3>
-      <h3>weight: {data.weight}</h3>
-      <h3>base experience: {data.base_experience}</h3>
-      {data.stats.map((poke, index) => {
-        return (
-          <div key={index}>
-            <h3>
-              {poke.stat.name}:{poke.base_stat}
-            </h3>
-          </div>
-        )
-      })}
+      <StatsPokemon>
+        {data.stats.map((poke, index) => {
+          return (
+            <Stat key={index}>
+              <StatName>
+                <span>{poke.stat.name}:</span>
+              </StatName>
+              <BaseStat>
+                <Value
+                  value={poke.base_stat}
+                  color={colors[data.types[0].type.name]}
+                >
+                  <span>{poke.base_stat}</span>
+                </Value>
+              </BaseStat>
+            </Stat>
+          )
+        })}
+      </StatsPokemon>
     </Container>
   )
 }

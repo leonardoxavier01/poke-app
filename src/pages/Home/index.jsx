@@ -77,7 +77,6 @@ const Home = () => {
     setSuggestions(matches)
     setInput(input)
   }
-  console.log(allPokemons)
   return (
     <>
       <SectionPokedex />
