@@ -1,20 +1,27 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  //background: radial-gradient(circle,${(props) => props.color} 0%,#fff 100%);
   background: linear-gradient(0deg, #fff, ${(props) => props.color} 100%);
   width: 100%;
   min-height: 70vh;
+  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 3rem;
   border: 1px solid ${({ theme }) => theme.lightGrey};
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  h1 {
+    margin: 0;
+    color: #202020;
+    font-size: 5rem;
+    text-transform: capitalize;
+  }
 `
 export const Type = styled.div`
   background-color: ${(props) => props.color};
-
   border-radius: 1rem;
   min-width: 9rem;
   height: 1.9rem;
@@ -59,11 +66,11 @@ export const CarouselImage = styled.div`
   border-radius: 1rem;
   width: 25rem;
   height: 1rem;
- display: flex;
- align-items: center;
- justify-content: space-around;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   padding: 2.5rem;
-  div{
+  div {
     background-color: #ffffffa4;
     border-radius: 50%;
     width: 5rem;
@@ -72,9 +79,28 @@ export const CarouselImage = styled.div`
     align-items: center;
     justify-content: center;
   }
-  img{
-    border: red;
-    width: 8rem;
-    height: 8rem;
+  img {
+    width: 6rem;
+    height: 6rem;
+  }
+`
+
+export const BoxButtonId = styled.div`
+  width: 30rem;
+  margin-top: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  span {
+    font-size: 2.4rem;
+    color: #333333;
+  }
+  button {
+    background: transparent;
+    border: transparent;
+    cursor: pointer;
+    color: #333333;
   }
 `

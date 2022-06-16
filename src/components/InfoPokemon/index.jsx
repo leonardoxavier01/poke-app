@@ -1,5 +1,6 @@
 import React from 'react'
-import { Container, Type, Types, BoxImage, CarouselImage } from './styles'
+import { Container, Type, Types, BoxImage, CarouselImage, BoxButtonId } from './styles'
+import { FiArrowLeftCircle } from "react-icons/fi";
 
 const InfoPokemon = ({ data, onClick }) => {
   const colors = {
@@ -12,7 +13,7 @@ const InfoPokemon = ({ data, onClick }) => {
     fire: '#e1521a',
     flying: '#A891EC',
     ghost: '#70559B',
-    grass: '#35d82f',
+    grass: '#45be41',
     ground: '#f09d3e',
     ice: '#3addec',
     normal: '#667e79',
@@ -26,10 +27,10 @@ const InfoPokemon = ({ data, onClick }) => {
 
   return (
     <Container color={colors[data.types[0].type.name]}>
-      <div>
+      <BoxButtonId>
         <span>#0{data.id}</span>
-        <button onClick={onClick}>Voltar</button>
-      </div>
+        <button onClick={onClick}><FiArrowLeftCircle size={36}/></button>
+      </BoxButtonId>
       <h1>{data.name}</h1>
       <Types>
         {data.types.map((poke, index) => {
