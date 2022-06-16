@@ -30,6 +30,7 @@ export const Container = styled.div`
   }
 `
 export const Type = styled.div`
+  margin-top: 1rem;
   background-color: ${(props) => props.color};
   border-radius: 1rem;
   min-width: 9rem;
