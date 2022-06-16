@@ -1,26 +1,75 @@
 import React from 'react'
+import { Container, Type, Types, BoxImage, CarouselImage } from './styles'
 
 const InfoPokemon = ({ data, onClick }) => {
+  const colors = {
+    bug: '#A7B723',
+    dark: '#75574C',
+    dragon: '#3e7746',
+    electric: '#ded237',
+    fairy: '#f396c9',
+    fighting: '#f0a715',
+    fire: '#e1521a',
+    flying: '#A891EC',
+    ghost: '#70559B',
+    grass: '#35d82f',
+    ground: '#f09d3e',
+    ice: '#3addec',
+    normal: '#667e79',
+    poison: '#A43E9E',
+    psychic: '#b93057',
+    rock: '#8d5e0f',
+    steel: '#1c566f',
+    water: '#6493EB',
+    water: '#6493EB',
+  }
+
   return (
-    <div>
+    <Container color={colors[data.types[0].type.name]}>
       <div>
+        <span>#0{data.id}</span>
         <button onClick={onClick}>Voltar</button>
       </div>
-      <span>#0{data.id}</span>
       <h1>{data.name}</h1>
-      {data.types.map((poke, index) => {
-        return (
-          <div key={index}>
-            <h3>{poke.type.name}</h3>
-          </div>
-        )
-      })}
-      <img
-        src={data.sprites.other.dream_world.front_default}
-        alt={`image pokemon ${data.name}`}
-      />
-      <img src={data.sprites.back_default} alt={`image back${data.name}`} />
-      <img src={data.sprites.front_default} alt={`image front${data.name}`} />
+      <Types>
+        {data.types.map((poke, index) => {
+          return (
+            <Type key={index} color={colors[poke.type.name]}>
+              <h3>{poke.type.name}</h3>
+            </Type>
+          )
+        })}
+      </Types>
+      <BoxImage>
+        <img
+          src={data.sprites.other.dream_world.front_default}
+          alt={`image pokemon ${data.name}`}
+        />
+      </BoxImage>
+      <CarouselImage>
+        <div>
+          <img src={data.sprites.back_default} alt={`image back${data.name}`} />
+        </div>
+        <div>
+          <img
+            src={data.sprites.front_default}
+            alt={`image front${data.name}`}
+          />
+        </div>
+        <div>
+          <img
+            src={data.sprites.back_shiny}
+            alt={`image back shiny${data.name}`}
+          />
+        </div>
+        <div>
+          <img
+            src={data.sprites.front_shiny}
+            alt={`image front shiny${data.name}`}
+          />
+        </div>
+      </CarouselImage>
+
       {data.abilities.map((poke, index) => {
         return (
           <div key={index}>
@@ -40,7 +89,7 @@ const InfoPokemon = ({ data, onClick }) => {
           </div>
         )
       })}
-    </div>
+    </Container>
   )
 }
 

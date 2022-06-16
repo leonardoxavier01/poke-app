@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex-direction: column;
 `
 export const PokeContent = styled.div`
-  max-width: 80%;
+  min-width: 90%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
