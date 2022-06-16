@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   background: linear-gradient(0deg, #fff, ${(props) => props.color} 100%);
-  width: 100%;
   min-height: 70vh;
   padding: 0.5rem;
   display: flex;
@@ -13,6 +12,7 @@ export const Container = styled.div`
   border: 1px solid ${({ theme }) => theme.lightGrey};
   box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
+  min-width: 80%;
   h1 {
     margin: 0;
     color: #202020;
@@ -29,7 +29,7 @@ export const Type = styled.div`
   align-items: center;
   justify-content: center;
   padding: 1px;
-  border: 1px solid #333333;
+  border: 1px solid ${({ theme }) => theme.Grey};
   h3 {
     font-family: 'Courier New', Courier, monospace;
     color: black;
@@ -60,7 +60,7 @@ export const BoxImage = styled.div`
     height: 18rem;
   }
 `
-export const CarouselImage = styled.div`
+export const MiniImages = styled.div`
   margin-top: 2rem;
   background-color: #ffffff7a;
   border-radius: 1rem;
@@ -86,7 +86,6 @@ export const CarouselImage = styled.div`
 `
 
 export const BoxButtonId = styled.div`
-  width: 30rem;
   margin-top: 2rem;
   padding: 1rem;
   display: flex;
@@ -95,12 +94,50 @@ export const BoxButtonId = styled.div`
   justify-content: space-between;
   span {
     font-size: 2.4rem;
-    color: #333333;
+    color: ${({ theme }) => theme.Grey};
   }
   button {
     background: transparent;
     border: transparent;
     cursor: pointer;
-    color: #333333;
+    color: ${({ theme }) => theme.Grey};
+  }
+  @media (min-width: 300px) {
+    min-width: 90%;
+  }
+  @media (min-width: 900px) {
+    min-width: 70%;
+  }
+`
+export const Abilities = styled.div`
+  min-width: 25rem;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 0.2rem;
+  div {
+    margin: 1rem;
+    background-color: #ffffff7a;
+    height: 2rem;
+    padding: 5px;
+    min-width: 12rem;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid ${({ theme }) => theme.Grey};
+    h3 {
+      font-size: 2rem;
+      color: #202020;
+    }
+  }
+  @media (min-width: 300px) {
+    flex-direction: column;
+  }
+  @media (min-width: 600px) {
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 `

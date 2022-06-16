@@ -1,6 +1,14 @@
 import React from 'react'
-import { Container, Type, Types, BoxImage, CarouselImage, BoxButtonId } from './styles'
-import { FiArrowLeftCircle } from "react-icons/fi";
+import {
+  Container,
+  Type,
+  Types,
+  BoxImage,
+  MiniImages,
+  BoxButtonId,
+  Abilities,
+} from './styles'
+import { FiArrowLeftCircle } from 'react-icons/fi'
 
 const InfoPokemon = ({ data, onClick }) => {
   const colors = {
@@ -28,7 +36,9 @@ const InfoPokemon = ({ data, onClick }) => {
     <Container color={colors[data.types[0].type.name]}>
       <BoxButtonId>
         <span>#0{data.id}</span>
-        <button onClick={onClick}><FiArrowLeftCircle size={36}/></button>
+        <button onClick={onClick}>
+          <FiArrowLeftCircle size={36} />
+        </button>
       </BoxButtonId>
       <h1>{data.name}</h1>
       <Types>
@@ -46,14 +56,20 @@ const InfoPokemon = ({ data, onClick }) => {
           alt={`image pokemon ${data.name}`}
         />
       </BoxImage>
-      <CarouselImage>
+      <MiniImages>
+        <div>
+          <img
+            src={data.sprites.front_default}
+            alt={`image front${data.name}`}
+          />
+        </div>
         <div>
           <img src={data.sprites.back_default} alt={`image back${data.name}`} />
         </div>
         <div>
           <img
-            src={data.sprites.front_default}
-            alt={`image front${data.name}`}
+            src={data.sprites.front_shiny}
+            alt={`image front shiny${data.name}`}
           />
         </div>
         <div>
@@ -62,21 +78,16 @@ const InfoPokemon = ({ data, onClick }) => {
             alt={`image back shiny${data.name}`}
           />
         </div>
-        <div>
-          <img
-            src={data.sprites.front_shiny}
-            alt={`image front shiny${data.name}`}
-          />
-        </div>
-      </CarouselImage>
-
-      {data.abilities.map((poke, index) => {
-        return (
-          <div key={index}>
-            <h3>{poke.ability.name}</h3>
-          </div>
-        )
-      })}
+      </MiniImages>
+      <Abilities>
+        {data.abilities.map((poke, index) => {
+          return (
+            <div key={index}>
+              <h3>{poke.ability.name}</h3>
+            </div>
+          )
+        })}
+      </Abilities>
       <h3>height: {data.height}</h3>
       <h3>weight: {data.weight}</h3>
       <h3>base experience: {data.base_experience}</h3>
