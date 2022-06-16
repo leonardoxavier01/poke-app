@@ -22,8 +22,6 @@ const InfoPokemon = ({ data, onClick }) => {
     rock: '#8d5e0f',
     steel: '#1c566f',
     water: '#6493EB',
-    water: '#6493EB',
-    water: '#202020',
   }
 
   return (
