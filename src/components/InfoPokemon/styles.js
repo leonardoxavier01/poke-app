@@ -186,7 +186,7 @@ export const StatName = styled.div`
     width: 30%;
   }
   @media (min-width: 900px) {
-    width: 100px;
+    width: 150px;
   }
 `
 export const BaseStat = styled.div`
@@ -219,6 +219,11 @@ export const Value = styled.div`
     display: flex;
     align-items: center;
     margin-right: 0.5rem;
+    font-size: 1rem;
+    @media (max-width: 600px) {
+      min-width: 10px;
+      height: 10px;
+    }
   }
   @media (min-width: 600px) {
     width: ${(props) => (props.value ? props.value + 100 : 'auto')}px;
