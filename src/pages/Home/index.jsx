@@ -5,14 +5,15 @@ import { ButtonLoad } from '../../components'
 import { Suggestions } from '../../components'
 import { PokeList } from '../../components'
 import { Container, PokeContent } from './styles'
+import InfoPokemon from '../../components/InfoPokemon'
 
 const Home = () => {
+  let url = 'https://pokeapi.co/api/v2/pokemon?limit=20'
+
   const [allPokemons, setAllPokemons] = useState([])
-  const [loadMore, setLoadMore] = useState(
-    'https://pokeapi.co/api/v2/pokemon?limit=20'
-  )
+  const [loadMore, setLoadMore] = useState(url)
   const [input, setInput] = useState('')
-  const [users, setUsers] = useState([])
+  const [pokeSearch, setPokeSearch] = useState([])
   const [suggestions, setSuggestions] = useState([])
   const [pokeDex, setPokeDex] = useState()
 
@@ -42,12 +43,11 @@ const Home = () => {
 
   useEffect(() => {
     getAllPokemons()
-    const loadUsers = async () => {
+    const loadPokeSearch = async () => {
       const response = await baseUrl.get(`/pokemon?limit=649`)
-      console.log(response.data.results)
-      setUsers(response.data.results)
+      setPokeSearch(response.data.results)
     }
-    loadUsers()
+    loadPokeSearch()
   }, [])
 
   async function handleSearch(input) {
@@ -69,57 +69,39 @@ const Home = () => {
   const onChangeHandler = (input) => {
     let matches = []
     if (input.length > 0) {
-      matches = users.filter((user) => {
+      matches = pokeSearch.filter((pokemon) => {
         const regex = new RegExp(`${input}`, 'gi')
-        return user.name.match(regex)
+        return pokemon.name.match(regex)
       })
     }
     setSuggestions(matches)
     setInput(input)
   }
-  console.log(allPokemons)
   return (
     <>
       <SectionPokedex />
       <Container>
         <PokeContent>
-          <InputSearch
-            value={input}
-            onChange={(e) => onChangeHandler(e.target.value)}
-            onClick={handleSearch}
-          >
-            {suggestions.length > 0 && (
-              <Suggestions search={suggestions} onClick={handleSearch} />
-            )}
-          </InputSearch>
           {!pokeDex && (
             <>
+              <InputSearch
+                value={input}
+                onChange={(e) => onChangeHandler(e.target.value)}
+                onClick={handleSearch}
+              >
+                {suggestions.length > 0 && (
+                  <Suggestions search={suggestions} onClick={handleSearch} />
+                )}
+              </InputSearch>
               <PokeList
-                posts={allPokemons}
+                pokemons={allPokemons}
                 infoPokemon={(poke) => setPokeDex(poke)}
               />
               <ButtonLoad text="Load more" onClick={() => getAllPokemons()} />
             </>
           )}
           {pokeDex && (
-            <>
-              <button onClick={() => setPokeDex()}>Voltar</button>
-              <div>
-                <h1>{pokeDex.name}</h1>
-                <h2>{pokeDex.id}</h2>
-                <img
-                  src={pokeDex.sprites.other.dream_world.front_default}
-                  alt=""
-                />
-                <img src={pokeDex.sprites.back_default} alt="" />
-                <img src={pokeDex.sprites.front_default} alt="" />
-                <h3> ability: {pokeDex.abilities[0].ability.name}</h3>
-                <h3> ability: {pokeDex.abilities[1].ability.name}</h3>
-                <h3>height: {pokeDex.height}</h3>
-                <h3>weight: {pokeDex.weight}</h3>
-                <h3>base experience: {pokeDex.base_experience}</h3>
-              </div>
-            </>
+            <InfoPokemon data={pokeDex} onClick={() => setPokeDex()} />
           )}
         </PokeContent>
       </Container>

@@ -1,8 +1,12 @@
 export const theme = {
   black: '#121212',
+  blackout: '#202020',
+  Grey: '#333333',
   darkGrey: '#8c8c8d',
   lightGrey: '#c9cad1',
   white: '#fff',
+  offWhite:'#ffffff7a',
+  secondaryWhite:'#ffffffa4',
   primary: '#44cca6',
   grass: '#74cb48',
   bug: '#a7b723',
