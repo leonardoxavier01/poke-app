@@ -13,7 +13,7 @@ const Home = () => {
   const [allPokemons, setAllPokemons] = useState([])
   const [loadMore, setLoadMore] = useState(url)
   const [input, setInput] = useState('')
-  const [users, setUsers] = useState([])
+  const [pokeSearch, setPokeSearch] = useState([])
   const [suggestions, setSuggestions] = useState([])
   const [pokeDex, setPokeDex] = useState()
 
@@ -43,11 +43,11 @@ const Home = () => {
 
   useEffect(() => {
     getAllPokemons()
-    const loadUsers = async () => {
+    const loadPokeSearch = async () => {
       const response = await baseUrl.get(`/pokemon?limit=649`)
-      setUsers(response.data.results)
+      setPokeSearch(response.data.results)
     }
-    loadUsers()
+    loadPokeSearch()
   }, [])
 
   async function handleSearch(input) {
@@ -69,9 +69,9 @@ const Home = () => {
   const onChangeHandler = (input) => {
     let matches = []
     if (input.length > 0) {
-      matches = users.filter((user) => {
+      matches = pokeSearch.filter((pokemon) => {
         const regex = new RegExp(`${input}`, 'gi')
-        return user.name.match(regex)
+        return pokemon.name.match(regex)
       })
     }
     setSuggestions(matches)
@@ -94,7 +94,7 @@ const Home = () => {
                 )}
               </InputSearch>
               <PokeList
-                posts={allPokemons}
+                pokemons={allPokemons}
                 infoPokemon={(poke) => setPokeDex(poke)}
               />
               <ButtonLoad text="Load more" onClick={() => getAllPokemons()} />

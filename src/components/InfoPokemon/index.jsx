@@ -100,6 +100,10 @@ const InfoPokemon = ({ data, onClick }) => {
           )
         })}
       </Abilities>
+      <Sizes>
+        <h3>height: {dividingSize(data.height)}</h3>
+        <h3>weight: {dividingSize(data.weight)}</h3>
+      </Sizes>
       <StatsPokemon>
         {data.stats.map((poke, index) => {
           return (
