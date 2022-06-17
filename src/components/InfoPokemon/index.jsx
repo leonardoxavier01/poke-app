@@ -1,4 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { colors } from './colors'
+import { useParams, useNavigate } from 'react-router-dom'
 import {
   Container,
   Type,
@@ -16,27 +19,19 @@ import {
 } from './styles'
 import { FiArrowLeftCircle } from 'react-icons/fi'
 
-const InfoPokemon = ({ data, onClick }) => {
-  const colors = {
-    bug: '#A7B723',
-    dark: '#75574C',
-    dragon: '#3e7746',
-    electric: '#ded237',
-    fairy: '#f396c9',
-    fighting: '#f0a715',
-    fire: '#e1521a',
-    flying: '#A891EC',
-    ghost: '#70559B',
-    grass: '#45be41',
-    ground: '#f09d3e',
-    ice: '#3addec',
-    normal: '#667e79',
-    poison: '#A43E9E',
-    psychic: '#b93057',
-    rock: '#8d5e0f',
-    steel: '#1c566f',
-    water: '#6493EB',
-  }
+const InfoPokemon = () => {
+  const { id } = useParams()
+  const navigate = useNavigate()
+  const baseUrl = `https://pokeapi.co/api/v2/pokemon/${id}`
+  const [data, setData] = useState(null)
+
+  useEffect(() => {
+    axios.get(baseUrl).then((response) => {
+      setData(response.data)
+    })
+  }, [])
+
+  if (!data) return null
 
   const dividingSize = (value) => value / 10
 
@@ -44,7 +39,7 @@ const InfoPokemon = ({ data, onClick }) => {
     <Container key={data.id} color={colors[data.types[0].type.name]}>
       <BoxButtonId>
         <span>#0{data.id}</span>
-        <button onClick={onClick}>
+        <button onClick={() => navigate(-1)}>
           <FiArrowLeftCircle size={36} />
         </button>
       </BoxButtonId>
