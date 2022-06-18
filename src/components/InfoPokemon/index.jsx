@@ -28,13 +28,15 @@ const InfoPokemon = () => {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    const getPokemon = async () => {
-      const response = await axios(baseUrl)
-      setPokemon(response.data)
-      setLoading(false)
-    }
-    window.scrollTo(0, 0)
-    getPokemon()
+    setTimeout(() => {
+      const getPokemon = async () => {
+        const response = await axios(baseUrl)
+        setPokemon(response.data)
+        setLoading(false)
+      }
+      window.scrollTo(0, 0)
+      getPokemon()
+    }, 300)
   }, [])
 
   const dividingSize = (value) => value / 10
