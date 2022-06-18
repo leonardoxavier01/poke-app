@@ -36,7 +36,7 @@ const InfoPokemon = () => {
       }
       window.scrollTo(0, 0)
       getPokemon()
-    }, 300)
+    }, 100)
   }, [])
 
   const dividingSize = (value) => value / 10

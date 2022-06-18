@@ -50,7 +50,7 @@ const Home = () => {
         setLoading(false)
       }
       loadPokeSearch()
-    }, 300)
+    }, 100)
   }, [])
 
   async function handleSearch(input) {
