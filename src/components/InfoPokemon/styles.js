@@ -8,10 +8,6 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  border-radius: 3rem;
-  border: 1px solid ${({ theme }) => theme.lightGrey};
-  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
-  margin-bottom: 0.5rem;
   min-width: 80%;
   h1 {
     margin: 0;
@@ -98,7 +94,7 @@ export const BoxButtonId = styled.div`
   margin-top: 2rem;
   padding: 1rem;
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   align-items: center;
   justify-content: space-between;
   span {
