@@ -58,4 +58,16 @@ export const BoxImage = styled.div`
     }
     height: 24rem;
   }
+
+  @keyframes float {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-25px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
 `
