@@ -18,24 +18,29 @@ import {
   Sizes,
 } from './styles'
 import { FiArrowLeftCircle } from 'react-icons/fi'
+import Loader from '../Loader'
 
 const InfoPokemon = () => {
   const { id } = useParams()
   const navigate = useNavigate()
   const baseUrl = `https://pokeapi.co/api/v2/pokemon/${id}`
   const [pokemon, setPokemon] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    axios.get(baseUrl).then((response) => {
+    const getPokemon = async () => {
+      const response = await axios(baseUrl)
       setPokemon(response.data)
-    })
+      setLoading(false)
+    }
+    getPokemon()
   }, [])
-
-  if (!pokemon) return null
 
   const dividingSize = (value) => value / 10
 
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <Container key={pokemon.id} color={colors[pokemon.types[0].type.name]}>
       <BoxButtonId>
         <span>#0{pokemon.id}</span>

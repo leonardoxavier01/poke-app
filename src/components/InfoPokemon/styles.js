@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const Container = styled.div`
   background: linear-gradient(0deg, #fff, ${(props) => props.color} 100%);
   min-height: 70vh;
-  padding: 0.5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
