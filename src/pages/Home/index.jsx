@@ -5,6 +5,7 @@ import { ButtonLoad } from '../../components'
 import { Suggestions } from '../../components'
 import { PokeList } from '../../components'
 import { Container, PokeContent } from './styles'
+import Loader from '../../components/Loader'
 
 const Home = () => {
   let url = 'https://pokeapi.co/api/v2/pokemon?limit=20'
@@ -14,6 +15,7 @@ const Home = () => {
   const [input, setInput] = useState('')
   const [pokeSearch, setPokeSearch] = useState([])
   const [suggestions, setSuggestions] = useState([])
+  const [loading, setLoading] = useState(true)
 
   const getAllPokemons = async () => {
     const res = await fetch(loadMore)
@@ -40,12 +42,15 @@ const Home = () => {
   }
 
   useEffect(() => {
-    getAllPokemons()
-    const loadPokeSearch = async () => {
-      const response = await baseUrl.get(`/pokemon?limit=649`)
-      setPokeSearch(response.data.results)
-    }
-    loadPokeSearch()
+    setTimeout(() => {
+      getAllPokemons()
+      const loadPokeSearch = async () => {
+        const response = await baseUrl.get(`/pokemon?limit=649`)
+        setPokeSearch(response.data.results)
+        setLoading(false)
+      }
+      loadPokeSearch()
+    }, 100)
   }, [])
 
   async function handleSearch(input) {
@@ -78,21 +83,25 @@ const Home = () => {
   return (
     <>
       <SectionPokedex />
-      <Container>
-        <PokeContent>
-          <InputSearch
-            value={input}
-            onChange={(e) => onChangeHandler(e.target.value)}
-            onClick={handleSearch}
-          >
-            {suggestions.length > 0 && (
-              <Suggestions search={suggestions} onClick={handleSearch} />
-            )}
-          </InputSearch>
-          <PokeList pokemons={allPokemons} />
-          <ButtonLoad text="Load more" onClick={() => getAllPokemons()} />
-        </PokeContent>
-      </Container>
+      {loading ? (
+        <Loader />
+      ) : (
+        <Container>
+          <PokeContent>
+            <InputSearch
+              value={input}
+              onChange={(e) => onChangeHandler(e.target.value)}
+              onClick={handleSearch}
+            >
+              {suggestions.length > 0 && (
+                <Suggestions search={suggestions} onClick={handleSearch} />
+              )}
+            </InputSearch>
+            <PokeList pokemons={allPokemons} loading={loading} />
+            <ButtonLoad text="Load more" onClick={() => getAllPokemons()} />
+          </PokeContent>
+        </Container>
+      )}
     </>
   )
 }
