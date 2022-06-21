@@ -21,6 +21,7 @@ import { FiArrowLeftCircle } from 'react-icons/fi'
 import Loader from '../Loader'
 import { themePokemons } from '../../styles/theme'
 
+
 const InfoPokemon = () => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -45,6 +46,7 @@ const InfoPokemon = () => {
   return loading ? (
     <Loader />
   ) : (
+
     <Container key={pokemon.id}>
       <Test color={themePokemons[pokemon.types[0].type.name]}>
         <BoxButtonId>
