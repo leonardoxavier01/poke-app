@@ -1,29 +1,34 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  background: linear-gradient(0deg, #fff, ${(props) => props.color} 100%);
-  min-height: 70vh;
+  background: ${({ theme }) => theme.backgroundGradient};
+  min-height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-width: 80%;
+  flex-direction: row;
+  width: 100%;
   h1 {
     margin: 0;
     color: ${({ theme }) => theme.blackout};
     font-size: 5rem;
     text-transform: capitalize;
   }
-  @media (min-width: 300px) {
-    min-width: 80%;
-  }
-  @media (min-width: 600px) {
-    min-width: 100%;
-  }
-  @media (min-width: 600px) {
-    min-width: 80%;
-  }
 `
+
+export const Test = styled.div`
+  background: linear-gradient(0deg, #fff, ${(props) => props.color} 100%);
+  border: 0.3rem solid rgba(193, 69, 175, 1);
+  border-radius: 50px;
+  margin: 0 2rem;
+  min-height: 60rem;
+  width: 50rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px;
+`
+
 export const Type = styled.div`
   margin-top: 1rem;
   background-color: ${(props) => props.color};
