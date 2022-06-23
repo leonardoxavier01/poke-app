@@ -42,15 +42,15 @@ const Home = () => {
   }
 
   useEffect(() => {
-    setTimeout(() => {
-      getAllPokemons()
-      const loadPokeSearch = async () => {
-        const response = await baseUrl.get(`/pokemon?limit=649`)
-        setPokeSearch(response.data.results)
+    getAllPokemons()
+    const loadPokeSearch = async () => {
+      const response = await baseUrl.get(`/pokemon?limit=649`)
+      setPokeSearch(response.data.results)
+      setTimeout(() => {
         setLoading(false)
-      }
-      loadPokeSearch()
-    }, 100)
+      }, 100)
+    }
+    loadPokeSearch()
   }, [])
 
   async function handleSearch(input) {

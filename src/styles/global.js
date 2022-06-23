@@ -11,7 +11,7 @@ body {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
-  background-color: #d6c5fa;
+  background: ${({ theme }) => theme.backgroundGradient}; 
 }
 
 code {
