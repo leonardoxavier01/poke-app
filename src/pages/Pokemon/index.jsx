@@ -12,6 +12,27 @@ import {
   Loader,
 } from '../../components'
 
+const RenderImage = ({ pokemon }) => {
+  return (
+    <>
+      {pokemon.sprites.other.dream_world.front_default ||
+      pokemon.sprites.other.home.front_default ||
+      pokemon.sprites.front_default ? (
+        <img
+          src={
+            pokemon.sprites.other.dream_world.front_default ||
+            pokemon.sprites.other.home.front_default ||
+            pokemon.sprites.front_default
+          }
+          alt={`main image ${pokemon.name}`}
+        />
+      ) : (
+        <div>unavailable</div>
+      )}
+    </>
+  )
+}
+
 const Pokemon = (res) => {
   const { id } = useParams()
   const navigate = useNavigate()
@@ -32,27 +53,6 @@ const Pokemon = (res) => {
     getPokemon()
   }, [])
 
-  const RenderImage = () => {
-    return (
-      <>
-        {pokemon.sprites.other.dream_world.front_default ||
-        pokemon.sprites.other.home.front_default ||
-        pokemon.sprites.front_default ? (
-          <img
-            src={
-              pokemon.sprites.other.dream_world.front_default ||
-              pokemon.sprites.other.home.front_default ||
-              pokemon.sprites.front_default
-            }
-            alt={`main image ${pokemon.name}`}
-          />
-        ) : (
-          <div>unavailable</div>
-        )}
-      </>
-    )
-  }
-
   return loading ? (
     <Loader />
   ) : (
@@ -67,7 +67,7 @@ const Pokemon = (res) => {
         <h1>{pokemon.name}</h1>
         <BoxTypes pokemon={pokemon} />
         <BoxImage>
-          <RenderImage />
+          <RenderImage pokemon={pokemon} />
         </BoxImage>
         <Sizes>
           <h3>height: {pokemon.height / 10}m</h3>
