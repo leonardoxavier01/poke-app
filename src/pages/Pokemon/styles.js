@@ -20,11 +20,19 @@ export const Wrapper = styled.div`
   border-radius: 50px;
   margin: 0 2rem;
   min-height: 60rem;
-  width: 50rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 5px;
+  @media (min-width: 300px) {
+    width: 80%;
+  }
+  @media (min-width: 600px) {
+    width: 45rem;
+  }
+  @media (min-width: 900px) {
+    width: 50rem;
+  }
 `
 
 export const BoxImage = styled.div`
