@@ -25,10 +25,10 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: 5px;
   @media (min-width: 300px) {
-    width: 80%;
+    width: 90%;
   }
   @media (min-width: 600px) {
-    width: 45rem;
+    min-width: 35rem;
   }
   @media (min-width: 900px) {
     width: 50rem;

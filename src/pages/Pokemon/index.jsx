@@ -53,6 +53,8 @@ const Pokemon = (res) => {
     getPokemon()
   }, [])
 
+  if (!pokemon) return null
+
   return loading ? (
     <Loader />
   ) : (
