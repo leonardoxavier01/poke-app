@@ -7,11 +7,21 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
+  transition: wipe-in-up;
+  animation: 1s cubic-bezier(0.25, 1, 0.3, 1) wipe-in-up both;
   h1 {
     margin: 0;
     color: ${({ theme }) => theme.blackout};
     font-size: 5rem;
     text-transform: capitalize;
+  }
+  @keyframes wipe-in-up {
+    from {
+      clip-path: inset(100% 0 0 0);
+    }
+    to {
+      clip-path: inset(0 0 0 0);
+    }
   }
 `
 export const Wrapper = styled.div`
