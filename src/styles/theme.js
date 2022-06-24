@@ -7,6 +7,8 @@ export const theme = {
   white: '#fff',
   offWhite: '#ffffff7a',
   secondaryWhite: '#ffffffa4',
+  blue: '#7856fe',
+  red: '#dc0a2d',
   backgroundGradient:
     'linear-gradient(90deg,rgba(120, 86, 254, 1) 0%, rgba(193, 69, 175, 1) 57%)',
 
