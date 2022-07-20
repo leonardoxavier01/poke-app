@@ -10,21 +10,24 @@ import {
   PokeType,
 } from './styles'
 
-const Card = ({ id, image, name, type, onClick }) => {
+const Card = (props) => {
   return (
     <Link
       style={{ color: 'inherit', textDecoration: 'inherit' }}
-      to={`/pokemon/${id}`}
+      to={`/pokemon/${props.id}`}
     >
-      <CardWrapper onClick={onClick}>
+      <CardWrapper>
         <PokemonContainer>
-          <small className="id">#0{id}</small>
-          <SvgCard color={type} />
-          <PokemonImage src={image} alt={name} />
-          <PokemonName>{name}</PokemonName>
+          <small className="id">#0{props.id}</small>
+          <SvgCard color={props.type} />
+          <PokemonImage
+            src={props.image}
+            alt={`imagem pokemon ${props.name}`}
+          />
+          <PokemonName>{props.name}</PokemonName>
           <PokeType>
-            <small>{type}</small>
-            <img src={Type[type]} alt="Type Icon" />
+            <small>{props.type}</small>
+            <img src={Type[props.type]} alt="Type Icon" />
           </PokeType>
           <Button color={'#c145ae'}>See More</Button>
         </PokemonContainer>

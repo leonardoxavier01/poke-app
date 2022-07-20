@@ -44,7 +44,7 @@ const Home = () => {
   useEffect(() => {
     getAllPokemons()
     const loadPokeSearch = async () => {
-      const response = await baseUrl.get(`/pokemon?limit=649`)
+      const response = await baseUrl.get(`/pokemon?limit=100000`)
       setPokeSearch(response.data.results)
       setTimeout(() => {
         setLoading(false)
