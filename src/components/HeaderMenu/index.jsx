@@ -1,42 +1,59 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import logoPokemon from '@assets/images/logo.png'
-import './styles.css'
-import { Link } from 'react-router-dom'
+
+import {
+  NavbarContainer,
+  LeftContainer,
+  RightContainer,
+  NavbarExtendedContainer,
+  NavbarInnerContainer,
+  NavbarLinkContainer,
+  NavbarLink,
+  Logo,
+  OpenLinksButton,
+  NavbarLinkExtended,
+  StyledTagA,
+  StyledTagAExtended,
+} from './styles'
 
 const HeaderMenu = () => {
-  const [classOn, setClassOn] = useState(false)
+  const [extendNavbar, setExtendNavbar] = useState(false)
 
   return (
-    <header>
-      <div className="container">
-        <img className="logo-cyan" src={logoPokemon} alt="logo Cyan" />
-        <div
-          className={classOn ? 'menu-section on' : 'menu-section'}
-          onClick={() => setClassOn(!classOn)}
-        >
-          <div className="menu-toggle">
-            <div className="one"></div>
-            <div className="two"></div>
-            <div className="three"></div>
-          </div>
-          <nav>
-            <ul>
-              <li>
-                <Link to={'/'}>home</Link>
-              </li>
-              <li>
-                <a href="https://www.figma.com/file/JRMiIQLxO0QfVfux5VWZa5/Estudo-de-caso-Awari?node-id=0%3A1">
-                  design
-                </a>
-              </li>
-              <li>
-                <a href="https://pokeapi.co/">Poke Api</a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-    </header>
+    <NavbarContainer extendNavbar={extendNavbar}>
+      <NavbarInnerContainer>
+        <LeftContainer>
+          <NavbarLinkContainer>
+            <NavbarLink to="/"> Home</NavbarLink>
+            <StyledTagA href="https://www.figma.com/file/JRMiIQLxO0QfVfux5VWZa5/Estudo-de-caso-Awari?node-id=0%3A1">
+              Desing
+            </StyledTagA>
+            <StyledTagA href="https://pokeapi.co/">PokeApi</StyledTagA>
+            <OpenLinksButton
+              onClick={() => {
+                setExtendNavbar((curr) => !curr)
+              }}
+            >
+              {extendNavbar ? <>&#10005;</> : <> &#8801;</>}
+            </OpenLinksButton>
+          </NavbarLinkContainer>
+        </LeftContainer>
+        <RightContainer>
+          <Logo src={logoPokemon}></Logo>
+        </RightContainer>
+      </NavbarInnerContainer>
+      {extendNavbar && (
+        <NavbarExtendedContainer>
+          <NavbarLinkExtended to="/"> Home</NavbarLinkExtended>
+          <StyledTagAExtended href="https://www.figma.com/file/JRMiIQLxO0QfVfux5VWZa5/Estudo-de-caso-Awari?node-id=0%3A1">
+            Desing
+          </StyledTagAExtended>
+          <StyledTagAExtended href="https://pokeapi.co/">
+            PokeApi
+          </StyledTagAExtended>
+        </NavbarExtendedContainer>
+      )}
+    </NavbarContainer>
   )
 }
 

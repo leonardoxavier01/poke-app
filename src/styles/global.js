@@ -24,4 +24,9 @@ code {
   width: 100vw;
 }
 
+@media (max-width: 630px) {
+    html {
+        font-size: 70%;
+    }
+}
 `
