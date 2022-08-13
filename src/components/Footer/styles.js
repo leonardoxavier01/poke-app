@@ -9,7 +9,7 @@ export const FooterContainer = styled.footer`
   height: 15.43rem;
 `
 
-export const LogoAwari = styled.img`
+export const LogoPokeApi = styled.img`
   width: 9.18rem;
-  height: 2.51rem;
+  height: 4rem;
 `

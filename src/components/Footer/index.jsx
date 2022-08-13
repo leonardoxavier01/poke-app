@@ -1,12 +1,12 @@
 import React from 'react'
-import logoAwari from '@assets/images/logoawari.png'
-import { FooterContainer, LogoAwari } from './styles'
+import logoPokeApi from '@assets/images/logopokeapi.png'
+import { FooterContainer, LogoPokeApi } from './styles'
 
 const Footer = () => (
     
     <FooterContainer>
         <h3>Estudo do caso</h3>
-        <LogoAwari src={logoAwari} />
+        <LogoPokeApi src={logoPokeApi} />
     </FooterContainer>
 
 )
