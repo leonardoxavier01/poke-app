@@ -45,7 +45,7 @@ Ao clicar em um card de pokémon você será redirecionado para a página do mes
 
 Todos os dados do pokémons são consumidos da [PokéAPI](https://pokeapi.co/), api que é muito conhecida por disponibilizar diversos dados sobre a saga Pokémon. 
 
-## ⚙️ Obejtivo da pokedex
+## ⚙️ Objetivo da pokedex
 
 O objetivo da pokédex é fazer com que o usuário conheça mais sobre os diversos pokémons que existem no mundo. 
 
